@@ -13,13 +13,19 @@ spring:
       username: ${sky.datasource.username}
       password: ${sky.datasource.password}
 
-mybatis:
-  #mapper配置文件
+mybatis-plus:
+  # Mapper XML 文件位置
   mapper-locations: classpath:mapper/*.xml
+  # 实体类包路径（用于别名）
   type-aliases-package: com.sky.entity
   configuration:
-    #开启驼峰命名
-    map-underscore-to-camel-case: true
+    # 开启驼峰命名转蛇形命名
+    mapUnderscoreToCamelCase: true
+  global-config:
+    db-config:
+      # 主键类型：none(无主键), auto(自增), input(手动输入), assign_id(雪花算法)
+      id-type: auto
+
 
 logging:
   level:
